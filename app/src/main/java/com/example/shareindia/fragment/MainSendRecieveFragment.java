@@ -53,7 +53,6 @@ public class MainSendRecieveFragment extends Fragment implements Activity.OnBack
                         .putExtra(ConnectionManagerActivity.EXTRA_ACTIVITY_SUBTITLE, getString(R.string.text_receive))
                         .putExtra(ConnectionManagerActivity.EXTRA_REQUEST_TYPE, ConnectionManagerActivity.RequestType.MAKE_ACQUAINTANCE.toString()));
             }
-
         });
 
         viewHistory.setOnClickListener(new View.OnClickListener() {
@@ -88,16 +87,6 @@ public class MainSendRecieveFragment extends Fragment implements Activity.OnBack
 
     @Override
     public boolean onBackPressed() {
-//        Object activeItem = mAdapter.getItem(mViewPager.getCurrentItem());
-//
-//        if ((activeItem instanceof Activity.OnBackPressedListener
-//                && ((Activity.OnBackPressedListener) activeItem).onBackPressed()))
-//            return true;
-//
-//        if (mViewPager.getCurrentItem() > 0) {
-//            mViewPager.setCurrentItem(0, true);
-//            return true;
-//        }
         return false;
     }
 }

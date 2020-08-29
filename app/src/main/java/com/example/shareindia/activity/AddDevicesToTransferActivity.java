@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,7 +44,7 @@ public class AddDevicesToTransferActivity extends Activity
 
     private TransferGroup mGroup = null;
     private AddDeviceRunningTask mTask;
-    private FloatingActionButton mActionButton;
+    private Button mActionButton;
     private ProgressBar mProgressBar;
     private ViewGroup mLayoutStatusContainer;
     private TextView mProgressTextLeft;
@@ -109,26 +110,26 @@ public class AddDevicesToTransferActivity extends Activity
         resetStatusViews();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        int id = item.getItemId();
-
-        if (id == android.R.id.home || id == R.id.actions_add_devices_done) {
-            if (mTask != null)
-                mTask.getInterrupter().interrupt();
-            finish();
-        } else if (id == R.id.actions_add_devices_help) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle(R.string.text_help)
-                    .setMessage(R.string.text_addDeviceHelp)
-                    .setPositiveButton(R.string.butn_close, null);
-
-            builder.show();
-        } else
-            return super.onOptionsItemSelected(item);
-        return true;
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item)
+//    {
+//        int id = item.getItemId();
+//
+//        if (id == android.R.id.home || id == R.id.actions_add_devices_done) {
+//            if (mTask != null)
+//                mTask.getInterrupter().interrupt();
+//            finish();
+//        } else if (id == R.id.actions_add_devices_help) {
+//            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//            builder.setTitle(R.string.text_help)
+//                    .setMessage(R.string.text_addDeviceHelp)
+//                    .setPositiveButton(R.string.butn_close, null);
+//
+//            builder.show();
+//        } else
+//            return super.onOptionsItemSelected(item);
+//        return true;
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -259,7 +260,7 @@ public class AddDevicesToTransferActivity extends Activity
         mProgressBar.setProgress(0);
 
         //mTextMain.setText(R.string.text_addDevicesToTransfer);
-        mActionButton.setImageResource(R.drawable.ic_add_white_24dp);
+       // mActionButton.setImageResource(R.drawable.ic_add_white_24dp);
         mLayoutStatusContainer.setVisibility(View.GONE);
         mActionButton.setOnClickListener(new View.OnClickListener()
         {
@@ -280,7 +281,7 @@ public class AddDevicesToTransferActivity extends Activity
     public void takeOnProcessMode()
     {
         mLayoutStatusContainer.setVisibility(View.VISIBLE);
-        mActionButton.setImageResource(R.drawable.ic_close_white_24dp);
+       // mActionButton.setImageResource(R.drawable.ic_close_white_24dp);
         mActionButton.setOnClickListener(new View.OnClickListener()
         {
             @Override

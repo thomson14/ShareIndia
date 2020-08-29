@@ -10,29 +10,6 @@
             android:summary="@string/text_deviceNameSummary"
             android:title="@string/text_deviceName" />
 
-<!--        <CheckBoxPreference-->
-<!--            android:defaultValue="false"-->
-<!--            android:icon="@drawable/ic_palette_white_24dp"-->
-<!--            android:key="dark_theme"-->
-<!--            android:summary="@string/text_applyDarkThemeSummary"-->
-<!--            android:title="@string/text_applyDarkTheme" />-->
-
-<!--        <CheckBoxPreference-->
-<!--            android:dependency="dark_theme"-->
-<!--            android:defaultValue="false"-->
-<!--            android:icon="@drawable/ic_invert_colors_black_24dp"-->
-<!--            android:key="amoled_theme"-->
-<!--            android:summary="@string/text_amoledOptimizedBlackThemeSummary"-->
-<!--            android:title="@string/text_amoledOptimizedBlackTheme" />-->
-
-<!--        <CheckBoxPreference-->
-<!--            android:defaultValue="false"-->
-<!--            android:icon="@drawable/ic_short_text_white_24dp"-->
-<!--            android:key="custom_fonts"-->
-<!--            android:summary="@string/const_text_useAppFontsSummary"-->
-<!--            android:title="@string/const_text_useAppFonts"-->
-<!--            tools:targetApi="16" />-->
-
         <CheckBoxPreference
             android:defaultValue="false"
             android:icon="@drawable/ic_vpn_key_white_24dp"

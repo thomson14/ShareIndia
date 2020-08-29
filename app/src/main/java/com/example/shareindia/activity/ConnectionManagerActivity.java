@@ -168,15 +168,6 @@ public class ConnectionManagerActivity
     };
 
 
-//    public static void startInstance(Context context)
-//    {
-//
-//        Log.d("DEBUG", "startInstance: Sinstance");
-//        context.startActivity(new Intent(context,ConnectionManagerActivity.class));
-//                .putExtra(ConnectionManagerActivity.EXTRA_ACTIVITY_SUBTITLE, "Add devices to transfer").addFlags(REQUEST_CODE_CHOOSE_DEVICE));
-//
-//    }
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
@@ -441,8 +432,8 @@ public class ConnectionManagerActivity
                             .startShowing();
                 }
             });
-
             return view;
+
         }
 
         @Override
@@ -466,7 +457,7 @@ public class ConnectionManagerActivity
                 }
         }
 
-        private void startCodeScanner()
+        public void startCodeScanner()
         {
             startActivityForResult(new Intent(getActivity(), BarcodeScannerActivity.class),
                     REQUEST_CHOOSE_DEVICE);

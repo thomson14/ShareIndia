@@ -72,9 +72,7 @@
             android:name=".activity.FileExplorerActivity"
             android:label="@string/text_fileExplorer"
             android:theme="@style/Theme.ShareIndia.NoActionBar.StaticStatusBar" /> <!-- <activity -->
-        <!-- android:name=".activity.TextStreamActivity" -->
-        <!-- android:label="@string/text_textStream" -->
-        <!-- android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar" /> -->
+
         <activity
             android:name=".activity.ConnectionManagerActivity"
             android:label="@string/text_connectDevices"
@@ -101,7 +99,7 @@
                 <data android:scheme="content" />
                 <data android:mimeType="*/*" />
                 <data android:host="*" />
-                <!-- expected file name pattern .5435-4543-4354-ewrw.tshare -->
+
                 <data android:pathPattern=".*\\.tshare" />
                 <data android:pathPattern=".*\\..*\\.tshare" />
             </intent-filter>
@@ -115,9 +113,7 @@
         <activity
             android:name=".activity.PreferencesActivity"
             android:label="@string/text_preferences" />
-        <!--        <activity-->
-        <!--            android:name=".activity.TextEditorActivity"-->
-        <!--            android:label="@string/text_textEditor" />-->
+
         <activity
             android:name=".activity.ChangeStoragePathActivity"
             android:theme="@style/Base.Theme.AppCompat.Dialog">
@@ -126,16 +122,13 @@
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity> <!-- <activity -->
-        <!-- android:name=".activity.AboutActivity" -->
-        <!-- android:label="@string/text_about" -->
-        <!-- android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar" /> -->
+        </activity>
         <activity
             android:name=".activity.ThirdPartyLibrariesActivity"
             android:label="@string/text_thirdPartyLibraries" />
         <activity
             android:name=".activity.ChangelogActivity"
-            android:label="@string/text_changelog" /> <!-- todo: Remember, we are always using dark theme for this for better effects -->
+            android:label="@string/text_changelog" />
         <activity
             android:name=".activity.BarcodeScannerActivity"
             android:label="@string/text_scanQrCode"
@@ -144,9 +137,7 @@
             android:name=".activity.WelcomeActivity"
             android:label="@string/text_welcome"
             android:theme="@style/Theme.ShareIndia.NoActionBar" /> <!-- <activity -->
-        <!-- android:name=".activity.WebShareActivity" -->
-        <!-- android:label="@string/text_webShare" -->
-        <!-- android:theme="@style/Theme.TrebleShot.NoActionBar.StaticStatusBar" /> -->
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
