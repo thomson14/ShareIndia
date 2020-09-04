@@ -8,7 +8,7 @@
     android:paddingBottom="10dp"
     android:orientation="horizontal">
 
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_genonbeta_white_24dp_static"

@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context="com.example.shareindia.fragment.MainSendRecieveFragment">
 
 
@@ -16,6 +17,7 @@
         android:orientation="horizontal"
         android:paddingLeft="@dimen/short_content_width_padding"
         android:paddingTop="8dp"
+        android:layout_marginTop="13dp"
         android:paddingRight="@dimen/short_content_width_padding"
         android:paddingBottom="8dp">
 
@@ -34,12 +36,12 @@
                 android:padding="15dp"
                 android:src="@drawable/ic_send_share_white_24dp"/>
 
-          <TextView
-              android:layout_width="55dp"
-              android:layout_height="wrap_content"
-              android:text="Send"
-              android:gravity="center"
-              android:textColor="@color/black_dominant"/>
+            <TextView
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:text="Send"
+                android:gravity="center"
+                android:textColor="@color/black_dominant"/>
 
 
         </LinearLayout>
@@ -103,6 +105,27 @@
 
     </LinearLayout>
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="110dp"
+    android:orientation="vertical"
+    android:padding="5dp"
+    >
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="horizontal"
+            android:divider="@color/colorSecondary"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>
 
 </FrameLayout>

@@ -12,6 +12,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 
 import com.example.shareindia.R;
+import com.example.shareindia.activity.HomeActivity;
 import com.example.shareindia.app.Activity;
 
 import static com.example.shareindia.activity.HomeActivity.REQUEST_PERMISSION_ALL;
@@ -56,7 +57,7 @@ public class RationalePermissionRequest extends AlertDialog.Builder
             @Override
             public void onClick(DialogInterface dialogInterface, int i)
             {
-                ActivityCompat.requestPermissions(activity, new String[]{mPermissionQueue.permission}, REQUEST_PERMISSION_ALL);
+                ActivityCompat.requestPermissions(activity, new String[]{mPermissionQueue.permission}, HomeActivity.REQUEST_PERMISSION_ALL);
             }
         });
 

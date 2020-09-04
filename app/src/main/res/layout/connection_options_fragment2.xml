@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="90dp"
+            android:layout_marginLeft="@dimen/short_content_width_padding"
+            android:layout_marginRight="@dimen/short_content_width_padding">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="15dp"
+                    android:paddingRight="25dp"
+                    android:paddingBottom="15dp">
+
+                    <TextView
+                        style="@style/TextAppearance.Secondary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_connectionHelp"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorSecondary" />
+
+                    <pl.droidsonroids.gif.GifImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/hotspot"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/connection_option_guide_RD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?rectSelector"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="15dp"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginRight="30dp"
+                        app:srcCompat="@drawable/ic_help_circle_white_24dp"
+                        app:tint="?colorSecondary" />
+
+                    <TextView
+                        style="@style/TextAppearance.Primary.SingleLine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ques_needHelp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/connection_option_hotspot_RD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="?rectSelector"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:padding="15dp">
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="10dp"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:layout_marginEnd="30dp"-->
+<!--                        android:layout_marginRight="30dp"-->
+<!--                        app:srcCompat="@drawable/ic_wifi_tethering_white_24dp"-->
+<!--                        app:tint="?colorSecondary" />-->
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="70dp"
+                        android:gravity="center"
+                        android:background="@drawable/rectangle_background"
+                        android:textColor="@color/windowBackground"
+                        android:text="@string/butn_startHotspot" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/connection_option_network_RD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?rectSelector"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="15dp"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginRight="30dp"
+                        app:srcCompat="@drawable/ic_wifi_white_24dp"
+                        app:tint="?colorSecondary" />
+
+                    <TextView
+                        style="@style/TextAppearance.Primary.SingleLine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/butn_useExistingNetwork" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/connection_option_scan_RD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?rectSelector"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="15dp"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginRight="30dp"
+                        app:srcCompat="@drawable/ic_qrcode_scan_white_24dp"
+                        app:tint="?colorSecondary" />
+
+                    <TextView
+                        style="@style/TextAppearance.Primary.SingleLine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/butn_scanQrCode" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/connection_option_manual_ip_RD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?rectSelector"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="15dp"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginRight="30dp"
+                        app:srcCompat="@drawable/ic_ip_white_24dp"
+                        app:tint="?colorSecondary" />
+
+                    <TextView
+                        style="@style/TextAppearance.Primary.SingleLine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/butn_enterIpAddress" />
+
+                </LinearLayout>
+
+                <!--
+                <LinearLayout
+                    android:id="@+id/connection_option_devices"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?rectSelector"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="15dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginRight="30dp"
+                        app:srcCompat="@drawable/ic_devices_white_24dp"
+                        app:tint="?colorSecondary" />
+
+                    <TextView
+                        style="@style/TextAppearance.Primary.SingleLine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/butn_useKnownDevice" />
+
+                </LinearLayout>-->
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/short_content_width_padding"
+            android:layout_marginRight="@dimen/short_content_width_padding">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/connection_option_devices_RD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:visibility="gone"
+                android:padding="3dp"
+                android:text="@string/butn_open" />
+
+
+            <TextView
+                style="@style/CondensedTitleStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/connection_option_devices_RD"
+                android:layout_toLeftOf="@id/connection_option_devices_RD"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:text="@string/text_useKnownDevice"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+<!--        <fragment-->
+<!--            android:id="@+id/connection_option_device_list_RD"-->
+<!--            android:name="com.example.shareindia.fragment.CustomNetworkDeviceListFragment"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="260dp"-->
+<!--            android:tag="deviceListFragment"-->
+<!--            />-->
+
+    </LinearLayout>
+
+
+</LinearLayout>

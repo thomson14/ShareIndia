@@ -177,17 +177,17 @@ public class BarcodeConnectFragment
                     .setMessage(R.string.text_scanQRCodeHelp)
                     .setPositiveButton(android.R.string.ok, null)
                     .show();
-        else if (id == R.id.change_mode) {
-            mShowAsText = !mShowAsText;
-            mTextModeIndicator.setVisibility(mShowAsText ? View.VISIBLE : View.GONE);
-            item.setIcon(mShowAsText ? R.drawable.ic_qrcode_white_24dp : R.drawable.ic_short_text_white_24dp);
-
-            createSnackbar(mShowAsText ? R.string.mesg_qrScannerTextMode : R.string.mesg_qrScannerDefaultMode)
-                    .show();
-
-            updateState();
-        } else
-            return super.onOptionsItemSelected(item);
+//        else if (id == R.id.change_mode) {
+//            mShowAsText = !mShowAsText;
+//            mTextModeIndicator.setVisibility(mShowAsText ? View.VISIBLE : View.GONE);
+//            item.setIcon(mShowAsText ? R.drawable.ic_qrcode_white_24dp : R.drawable.ic_short_text_white_24dp);
+//
+//            createSnackbar(mShowAsText ? R.string.mesg_qrScannerTextMode : R.string.mesg_qrScannerDefaultMode)
+//                    .show();
+//
+//            updateState();
+//        } else
+//            return super.onOptionsItemSelected(item);
 
         return true;
     }

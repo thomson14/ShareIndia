@@ -29,6 +29,9 @@
     <string name="text_developerModeSummary">Disables the user configuration</string>
     <string name="text_deviceName">Device name</string>
     <string name="text_deviceNameSummary">This name will be shown on other devices</string>
+    <string name="text_about_One">* In this apk you can send all the files and data of your device. It is very fast to send apk files from one mobile to another, It is very easy to send files faster.</string>
+    <string name="text_about_Two">* This apk is made by dcodecompany (www.dcodecompany.com) and this apk is made by the company AMS graphics designers (www.designersguru.in).</string>
+
     <string name="text_deviceNameTitle">Enter a device name</string>
     <string name="mesg_formatNotSupported">Unsupported format</string>
     <string name="mesg_fileSendError">Could not send file. %s</string>
@@ -200,8 +203,8 @@
     <string name="text_remainingTime">ETA %s</string>
     <string name="butn_showFiles">Show files</string>
     <string name="butn_trustZoneDevice">Set as TrustZone device</string>
-    <string name="butn_turnTrustZoneOn">Turn TrustZone on</string>
-    <string name="butn_turnTrustZoneOff">Turn TrustZone off</string>
+    <string name="butn_turnTrustZoneOn">Zone on</string>
+    <string name="butn_turnTrustZoneOff">Zone off</string>
     <string name="text_trustZoneEnabled">TrustZone</string>
     <string name="text_trustZoneEnabledSummary">TrustZone is activated on start</string>
     <string name="butn_typeNewEntry">Type new entry</string>
@@ -282,6 +285,7 @@
     <string name="text_minuteCountShort">%d min</string>
     <string name="text_secondCountShort">%d sec</string>
     <string name="butn_exit">Exit</string>
+    <string name="butn_footer">Made by DcodeCompany</string>
     <string name="butn_queueCounted">Queue (%d)</string>
     <string name="mesg_updateDownloadComplete">Update received successfully and saved to your received files</string>
     <string name="text_listEmptyFiles">No files here</string>
@@ -335,7 +339,7 @@
     <string name="text_network">Network</string>
     <string name="text_connect">Connect</string>
     <string name="butn_shareWithOtherApps">Share with other apps</string>
-    <string name="butn_startHotspot">Set up hotspot</string>
+    <string name="butn_startHotspot">My QR Code</string>
     <string name="butn_stopHotspot">Stop hotspot</string>
     <string name="text_easyDiscoveryHelp">Scan this if both devices are on the same network</string>
     <string name="text_scanQRWifiRequired">To connect to devices, Wi-Fi should be turned on</string>
@@ -393,7 +397,7 @@
     <string name="mesg_fileReceiveFilesLeftError">Failed to receive some files</string>
     <string name="text_send">Send</string>
     <string name="butn_send" translatable="false">@string/text_send</string>
-    <string name="text_connectionHelp">Choose an option to connect to the other device. For instance, if the other device is showing a QR code, use Scan QR code option.</string>
+    <string name="text_connectionHelp">Share With ShareIndia</string>
     <string name="ques_needHelp">Need a helping hand?</string>
     <string name="text_connectionWizard">Connection wizard</string>
     <string name="ques_connectionWizardIsOtherDeviceReady">Have you just set things up on the other device?</string>

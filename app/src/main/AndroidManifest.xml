@@ -29,6 +29,8 @@
         android:theme="@style/Theme.ShareIndia"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:appComponentFactory">
+        <activity android:name=".activity.AboutActivity">
+        </activity>
         <activity android:name=".activity.HistoryActivity">
         </activity>
         <activity
@@ -72,7 +74,6 @@
             android:name=".activity.FileExplorerActivity"
             android:label="@string/text_fileExplorer"
             android:theme="@style/Theme.ShareIndia.NoActionBar.StaticStatusBar" /> <!-- <activity -->
-
         <activity
             android:name=".activity.ConnectionManagerActivity"
             android:label="@string/text_connectDevices"
@@ -99,7 +100,6 @@
                 <data android:scheme="content" />
                 <data android:mimeType="*/*" />
                 <data android:host="*" />
-
                 <data android:pathPattern=".*\\.tshare" />
                 <data android:pathPattern=".*\\..*\\.tshare" />
             </intent-filter>
@@ -113,7 +113,6 @@
         <activity
             android:name=".activity.PreferencesActivity"
             android:label="@string/text_preferences" />
-
         <activity
             android:name=".activity.ChangeStoragePathActivity"
             android:theme="@style/Base.Theme.AppCompat.Dialog">
@@ -136,8 +135,8 @@
         <activity
             android:name=".activity.WelcomeActivity"
             android:label="@string/text_welcome"
-            android:theme="@style/Theme.ShareIndia.NoActionBar" /> <!-- <activity -->
-
+            android:theme="@style/Theme.ShareIndia.NoActionBar" />
+        <activity android:name=".activity.ReceivedFragmentQR" /> <!-- <activity -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"

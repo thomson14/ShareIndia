@@ -123,14 +123,14 @@ public class NetworkDeviceListFragment
         setEmptyImage(R.drawable.ic_devices_white_24dp);
         setEmptyText(getString(R.string.text_findDevicesHint));
 
-        useEmptyActionButton(getString(R.string.butn_scan), new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                requestRefresh();
-            }
-        });
+//        useEmptyActionButton(getString(R.string.butn_scan), new View.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(View v)
+//            {
+//                requestRefresh();
+//            }
+//        });
 
         if (mSwipeRefreshLayout != null)
             mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()

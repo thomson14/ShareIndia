@@ -10,6 +10,10 @@
         style="?navigationViewStyle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="fill_vertical" />
+        android:layout_gravity="fill_vertical" >
+
+
+    </com.google.android.material.navigation.NavigationView>
+
 
 </LinearLayout>

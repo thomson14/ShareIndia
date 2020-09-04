@@ -27,6 +27,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.shareindia.R;
 import com.example.shareindia.app.Activity;
 import com.example.shareindia.object.NetworkDevice;
+import com.example.shareindia.service.CommunicationService;
 import com.example.shareindia.util.AppUtils;
 import com.example.shareindia.widget.DynamicViewPagerAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -71,21 +72,21 @@ public class WelcomeActivity extends Activity
             pagerAdapter.addView(mSplashView);
         }
 
-        if (Build.VERSION.SDK_INT >= 23) {
-            mPermissionsView = (ViewGroup) getLayoutInflater().inflate(R.layout.layout_welcome_page_3, null, false);
-            pagerAdapter.addView(mPermissionsView);
-            checkPermissionsState();
-
-            mPermissionsView.findViewById(R.id.layout_welcome_page_3_request_button)
-                    .setOnClickListener(new View.OnClickListener()
-                    {
-                        @Override
-                        public void onClick(View v)
-                        {
-                            requestRequiredPermissions(false);
-                        }
-                    });
-        }
+//        if (Build.VERSION.SDK_INT >= 23) {
+//            mPermissionsView = (ViewGroup) getLayoutInflater().inflate(R.layout.layout_welcome_page_3, null, false);
+//            pagerAdapter.addView(mPermissionsView);
+//            checkPermissionsState();
+//
+//            mPermissionsView.findViewById(R.id.layout_welcome_page_3_request_button)
+//                    .setOnClickListener(new View.OnClickListener()
+//                    {
+//                        @Override
+//                        public void onClick(View v)
+//                        {
+//                            requestRequiredPermissions(false);
+//                        }
+//                    });
+//        }
 
         {
             mProfileView = (ViewGroup) getLayoutInflater().inflate(R.layout.layout_welcome_page_2, null, false);
@@ -179,9 +180,9 @@ public class WelcomeActivity extends Activity
     {
         super.onResume();
 
-//        slideSplashView();
+        slideSplashView();
         setUserProfile();
-        checkPermissionsState();
+//        checkPermissionsState();
     }
 
     @Override
@@ -195,22 +196,24 @@ public class WelcomeActivity extends Activity
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
     {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        checkPermissionsState();
+        if (AppUtils.checkRunningConditions(this))
+            AppUtils.startForegroundService(this, new Intent(this, CommunicationService.class));
+       // checkPermissionsState();
     }
 
-    protected void checkPermissionsState()
-    {
-        if (Build.VERSION.SDK_INT < 23)
-            return;
-
-        boolean permissionsOk = AppUtils.checkRunningConditions(this);
-
-        mPermissionsView.findViewById(R.id.layout_welcome_page_3_perm_ok_image)
-                .setVisibility(permissionsOk ? View.VISIBLE : View.GONE);
-
-        mPermissionsView.findViewById(R.id.layout_welcome_page_3_request_button)
-                .setVisibility(permissionsOk ? View.GONE : View.VISIBLE);
-    }
+//    protected void checkPermissionsState()
+//    {
+//        if (Build.VERSION.SDK_INT < 23)
+//            return;
+//
+//        boolean permissionsOk = AppUtils.checkRunningConditions(this);
+//
+//        mPermissionsView.findViewById(R.id.layout_welcome_page_3_perm_ok_image)
+//                .setVisibility(permissionsOk ? View.VISIBLE : View.GONE);
+//
+//        mPermissionsView.findViewById(R.id.layout_welcome_page_3_request_button)
+//                .setVisibility(permissionsOk ? View.GONE : View.VISIBLE);
+//    }
 
     protected void setUserProfile()
     {
@@ -238,12 +241,12 @@ public class WelcomeActivity extends Activity
         }
     }
 
-//    protected void slideSplashView()
-//    {
-//        mSplashView.findViewById(R.id.layout_welcome_page_1_splash_image)
-//                .setAnimation(AnimationUtils.loadAnimation(this, R.anim.enter_from_bottom_centered));
-//
-////        mSplashView.findViewById(R.id.layout_welcome_page_1_details)
-////                .setAnimation(AnimationUtils.loadAnimation(this, R.anim.enter_from_bottom));
-//    }
+    protected void slideSplashView()
+    {
+        mSplashView.findViewById(R.id.layout_welcome_page_1_splash_image)
+                .setAnimation(AnimationUtils.loadAnimation(this, R.anim.enter_from_bottom_centered));
+
+//        mSplashView.findViewById(R.id.layout_welcome_page_1_details)
+//                .setAnimation(AnimationUtils.loadAnimation(this, R.anim.enter_from_bottom));
+    }
 }
