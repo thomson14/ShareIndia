@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/activitiy_filepicker_fragment_files"
-        android:name="com.example.shareindia.fragment.FileExplorerFragment"
+        android:name="com.dcode.shareindia.fragment.FileExplorerFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

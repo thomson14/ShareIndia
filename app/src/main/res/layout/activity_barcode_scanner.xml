@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/barcodeScannerFragment"
-        android:name="com.example.shareindia.fragment.BarcodeConnectFragment"
+        android:name="com.dcode.shareindia.fragment.BarcodeConnectFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:tag="scannerFragment" />
