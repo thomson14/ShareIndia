@@ -59,8 +59,7 @@
     <group android:id="@+id/footer"
         >
        <item android:id="@+id/footer1"
-        android:orderInCategory="6"
-           android:icon="@drawable/ic_people_black_fff_24dp"
+        android:orderInCategory="6" android:icon="@drawable/ic_people_black_fff_24dp"
         android:title="@string/butn_footer" />
 
         <item android:id="@+id/footer3"
