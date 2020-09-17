@@ -14,6 +14,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
+import android.telephony.TelephonyManager;
 import android.util.Base64;
 import android.util.Log;
 import android.util.TypedValue;
@@ -49,8 +51,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AppUtils
-{
+public class AppUtils {
     public static final String TAG = AppUtils.class.getSimpleName();
 
     private static int mUniqueNumber = 0;
@@ -59,8 +60,7 @@ public class AppUtils
     private static SuperPreferences mDefaultLocalPreferences;
     private static SuperPreferences mViewingPreferences;
 
-    public static void applyAdapterName(NetworkDevice.Connection connection)
-    {
+    public static void applyAdapterName(NetworkDevice.Connection connection) {
         if (connection.ipAddress == null) {
             Log.e(AppUtils.class.getSimpleName(), "Connection should be provided with IP address");
             return;
@@ -79,8 +79,7 @@ public class AppUtils
         connection.adapterName = Keyword.Local.NETWORK_INTERFACE_UNKNOWN;
     }
 
-    public static void applyDeviceToJSON(Context context, JSONObject object) throws JSONException
-    {
+    public static void applyDeviceToJSON(Context context, JSONObject object) throws JSONException {
         NetworkDevice device = getLocalDevice(context);
         JSONObject deviceInformation = new JSONObject();
         JSONObject appInfo = new JSONObject();
@@ -107,8 +106,7 @@ public class AppUtils
         object.put(Keyword.DEVICE_INFO, deviceInformation);
     }
 
-    public static void createFeedbackIntent(Activity activity)
-    {
+    public static void createFeedbackIntent(Activity activity) {
         Intent intent = new Intent(Intent.ACTION_SEND)
                 .setType("text/plain")
                 .putExtra(Intent.EXTRA_EMAIL, new String[]{AppConfig.EMAIL_DEVELOPER})
@@ -128,8 +126,7 @@ public class AppUtils
         activity.startActivity(Intent.createChooser(intent, activity.getString(R.string.butn_feedbackContact)));
     }
 
-    public static boolean checkRunningConditions(Context context)
-    {
+    public static boolean checkRunningConditions(Context context) {
         for (RationalePermissionRequest.PermissionRequest request : getRequiredPermissions(context))
             if (ActivityCompat.checkSelfPermission(context, request.permission) != PackageManager.PERMISSION_GRANTED)
                 return false;
@@ -137,8 +134,7 @@ public class AppUtils
         return true;
     }
 
-    public static DocumentFile createLog(Context context)
-    {
+    public static DocumentFile createLog(Context context) {
         DocumentFile saveDirectory = FileUtils.getApplicationDirectory(context);
         String fileName = FileUtils.getUniqueFileName(saveDirectory, "trebleshot_log.txt", true);
         DocumentFile logFile = saveDirectory.createFile(null, fileName);
@@ -180,8 +176,7 @@ public class AppUtils
         return null;
     }
 
-    public static TextDrawable.IShapeBuilder getDefaultIconBuilder(Context context)
-    {
+    public static TextDrawable.IShapeBuilder getDefaultIconBuilder(Context context) {
         TextDrawable.IShapeBuilder builder = TextDrawable.builder();
 
         builder.beginConfig()
@@ -193,16 +188,14 @@ public class AppUtils
         return builder;
     }
 
-    public static AccessDatabase getDatabase(Context context)
-    {
+    public static AccessDatabase getDatabase(Context context) {
         if (mDatabase == null)
             mDatabase = new AccessDatabase(context);
 
         return mDatabase;
     }
 
-    public static Keyword.Flavor getBuildFlavor()
-    {
+    public static Keyword.Flavor getBuildFlavor() {
         try {
             return Keyword.Flavor.valueOf(BuildConfig.FLAVOR);
         } catch (Exception e) {
@@ -212,25 +205,20 @@ public class AppUtils
         }
     }
 
-    public static SuperPreferences getDefaultPreferences(final Context context)
-    {
+    public static SuperPreferences getDefaultPreferences(final Context context) {
         if (mDefaultPreferences == null) {
             DbSharablePreferences databasePreferences = new DbSharablePreferences(context, "__default", true)
-                    .setUpdateListener(new DbSharablePreferences.AsynchronousUpdateListener()
-                    {
+                    .setUpdateListener(new DbSharablePreferences.AsynchronousUpdateListener() {
                         @Override
-                        public void onCommitComplete()
-                        {
+                        public void onCommitComplete() {
                             context.sendBroadcast(new Intent(App.ACTION_REQUEST_PREFERENCES_SYNC));
                         }
                     });
 
             mDefaultPreferences = new SuperPreferences(databasePreferences);
-            mDefaultPreferences.setOnPreferenceUpdateListener(new SuperPreferences.OnPreferenceUpdateListener()
-            {
+            mDefaultPreferences.setOnPreferenceUpdateListener(new SuperPreferences.OnPreferenceUpdateListener() {
                 @Override
-                public void onPreferenceUpdate(SuperPreferences superPreferences, boolean commit)
-                {
+                public void onPreferenceUpdate(SuperPreferences superPreferences, boolean commit) {
                     PreferenceUtils.syncPreferences(superPreferences, getDefaultLocalPreferences(context).getWeakManager());
                 }
             });
@@ -239,16 +227,13 @@ public class AppUtils
         return mDefaultPreferences;
     }
 
-    public static SuperPreferences getDefaultLocalPreferences(final Context context)
-    {
+    public static SuperPreferences getDefaultLocalPreferences(final Context context) {
         if (mDefaultLocalPreferences == null) {
             mDefaultLocalPreferences = new SuperPreferences(PreferenceManager.getDefaultSharedPreferences(context));
 
-            mDefaultLocalPreferences.setOnPreferenceUpdateListener(new SuperPreferences.OnPreferenceUpdateListener()
-            {
+            mDefaultLocalPreferences.setOnPreferenceUpdateListener(new SuperPreferences.OnPreferenceUpdateListener() {
                 @Override
-                public void onPreferenceUpdate(SuperPreferences superPreferences, boolean commit)
-                {
+                public void onPreferenceUpdate(SuperPreferences superPreferences, boolean commit) {
                     PreferenceUtils.syncPreferences(superPreferences, getDefaultPreferences(context).getWeakManager());
                 }
             });
@@ -257,11 +242,40 @@ public class AppUtils
         return mDefaultLocalPreferences;
     }
 
-    public static String getDeviceSerial(Context context)
-    {
-        return Build.VERSION.SDK_INT < 26
-                ? Build.SERIAL
-                : (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED ? Build.getSerial() : null);
+    public static String getDeviceSerial(Context context) {
+//        return Build.VERSION.SDK_INT < 26
+//                ? Build.SERIAL
+//                : (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED ? Build.getSerial() : null);
+   //***********************************************
+
+        String deviceId;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+        {
+            deviceId = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+        } else {
+            final TelephonyManager mTelephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (context.checkSelfPermission(Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+                    return "";
+                }
+            }
+            assert mTelephony != null;
+            if (mTelephony.getDeviceId() != null)
+            {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                {
+                    deviceId = mTelephony.getImei();
+                }else {
+                    deviceId = mTelephony.getDeviceId();
+                }
+            } else {
+                deviceId = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+            }
+        }
+        Log.d("deviceId", deviceId);
+        return deviceId;
+
     }
 
     public static String getFriendlySSID(String ssid)

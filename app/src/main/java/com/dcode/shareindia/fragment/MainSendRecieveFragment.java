@@ -105,6 +105,18 @@ public class MainSendRecieveFragment extends Fragment implements Activity.OnBack
     }
 
     @Override
+    public void onPause() {
+        progressDialog.dismiss();
+        super.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        progressDialog.dismiss();
+        super.onDestroy();
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
